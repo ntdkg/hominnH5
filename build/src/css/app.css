@@ -1,0 +1,65 @@
+/* Your app styles here */
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+  content: normal !important;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+
+.rel {
+  position: relative;
+}
+
+.abs {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.center {
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+}
+
+.mcenter {
+  margin: 0 auto;
+}
+
+.centerh {
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+}
+
+.center.centerh {
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.js-none {
+  display: none;
+}
+
+.pagebox {
+  height: 100%;
+}
+
+.page {
+  height: 100%;
+}

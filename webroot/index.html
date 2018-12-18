@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) { 
+    
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.open('text/html');
+                document.write(this.responseText);
+                document.close();
+            }
+        };
+    
+        function padDigits(number, digits) {
+            return Array(Math.max(digits - String(number).length + 1, 0)).join(0) + number;
+        }
+    
+        var datetime = new Date();
+    
+        var year = datetime.getFullYear();
+        var month = datetime.getMonth() + 1;
+        var date = datetime.getDate();
+        var hours = datetime.getHours();
+        var minutes = datetime.getMinutes();
+        minutes = minutes - minutes % 2;
+    
+        var timezoneOffset = - datetime.getTimezoneOffset();
+        var timezoneOffsetString = "_GMT" + (timezoneOffset >= 0 ? "+" : "-") + padDigits(Math.floor(timezoneOffset / 60), 2) + padDigits(timezoneOffset % 60, 2);
+    
+        var dateString = year + "-" + padDigits(month, 2) + "-" + padDigits(date, 2) + "_" + padDigits(hours, 2) + ":" + padDigits(minutes, 2) + timezoneOffsetString;
+    
+        xhttp.open("GET", "index-content.html?" + dateString, true);
+        xhttp.send();
+    
+    });
+</script>
+</head>
+<body>
+</body>
+</html>
